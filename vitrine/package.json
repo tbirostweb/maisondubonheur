@@ -1,0 +1,19 @@
+{
+  "name": "lescale",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "L'Escale — site vitrine de locations de caractère (Vue 3 + Vite).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host --port 4173"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7"
+  }
+}

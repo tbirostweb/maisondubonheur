@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+/* ============================================================
+   1. THÈME — palette nuancée orange · jaune · marron clair · blanc
+   Chaque famille a plusieurs valeurs : les aplats ne sont jamais
+   la même couleur que le texte, et les fonds se superposent en
+   camaïeu plutôt qu'en blanc sur beige.
+   ============================================================ */
+@theme {
+  /* Papiers & fonds — du blanc chaud au marron clair */
+  --color-blanc:     #FFFFFF;
+  --color-papier:    #FFFCF7;
+  --color-papier-2:  #FBF4E9;
+  --color-sable:     #F5E7D3;
+  --color-argile:    #E9D4B6;
+  --color-terre:     #CBA47A;
+
+  /* Bruns — volontairement plus clairs qu'avant : le brief dit
+     « marron clair », pas chocolat noir. */
+  --color-cacao:     #6B4B2F;
+  --color-espresso:  #46301E;
+
+  /* Encres */
+  --color-encre:     #3B2A1B;
+  --color-encre2:    #7C6450;
+  --color-encre3:    #A48E76;
+  --color-ligne:     #EFE0CB;
+  --color-ligne-2:   #DFC9AA;
+
+  /* Orange */
+  --color-orange:        #EE6C12;
+  --color-orange-vif:    #FF8534;
+  --color-orange-fonce:  #C1500A;
+  --color-orange-encre:  #A34208;
+  --color-orange-pale:   #FDE6D3;
+
+  /* Jaune */
+  --color-jaune:         #F5B72C;
+  --color-jaune-vif:     #FFCE55;
+  --color-jaune-encre:   #8A6008;
+  --color-jaune-pale:    #FDF0D2;
+
+  --font-titre: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-texte: "Hanken Grotesk", system-ui, sans-serif;
+
+  --shadow-basse:  0 2px 10px -4px rgba(43, 29, 20, 0.18);
+  --shadow-douce:  0 18px 44px -22px rgba(43, 29, 20, 0.35);
+  --shadow-relief: 0 30px 70px -28px rgba(43, 29, 20, 0.5);
+
+  --ease-doux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  font-family: var(--font-texte);
+  background: var(--color-papier);
+  color: var(--color-encre);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+:focus-visible {
+  outline: 2px solid var(--color-orange-fonce);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+::selection {
+  background: var(--color-orange);
+  color: #fff;
+}
+
+/* Réglages du display (Onest).
+   Sans humaniste chaleureuse. Deux ajustements propres aux sans en grand :
+   un interlettrage nettement resserré (sans quoi les grands titres
+   paraissent délavés) et un peu plus de graisse que pour une serif, pour
+   tenir face au texte courant.
+   Le texte courant reste en Hanken Grotesk : la différence de graisse et
+   d'interlettrage suffit à séparer les deux niveaux. */
+.display {
+  font-family: var(--font-titre);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.display-s {
+  font-family: var(--font-titre);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+}
+/* Aparté (sous-titres de logement). Onest n'a PAS d'italique : en demander
+   une donnerait un faux oblique penché par le navigateur. On distingue donc
+   par la graisse et l'interlettrage, pas par l'inclinaison. */
+.aparte {
+  font-family: var(--font-titre);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Chiffres tabulaires pour les notes et les prix */
+.chiffres {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Petites capitales éditoriales */
+.surtitre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Arche — motif de porte de maison. Ce n'est pas un « coin arrondi » :
+   les deux angles hauts forment un demi-cercle complet, les angles bas
+   restent vifs. Utilisé sur les portraits et la photo du petit-déjeuner
+   pour casser l'empilement de rectangles. */
+.arche {
+  border-radius: 9999px 9999px 0 0;
+}
+
+/* Filet horizontal fin, utilisé comme séparateur éditorial */
+.filet {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--color-ligne-2),
+    var(--color-ligne-2) 40%,
+    transparent
+  );
+}
+
+/* ============================================================
+   3. GRAIN PAPIER — la texture qui enlève l'aspect « écran plat »
+   ============================================================ */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  pointer-events: none;
+  /* Simple calque translucide : `mix-blend-mode` sur un élément fixe
+     plein écran force toute la page dans un même groupe de compositing,
+     ce qui coûte très cher au défilement. */
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   4. MOTION — apparitions, décalage en cascade, bandeau défilant
+   Le masquage n'est appliqué que sous .js-motion (posée par main.js) :
+   sans JavaScript, tout le contenu reste visible.
+   ============================================================ */
+.js-motion [data-anim] {
+  opacity: 0;
+  transition:
+    opacity 0.8s var(--ease-doux),
+    transform 0.9s var(--ease-doux),
+    clip-path 1s var(--ease-doux);
+  transition-delay: var(--delai, 0ms);
+  /* Pas de `will-change` ici : la page compte une centaine d'éléments
+     animés et cela créerait autant de couches de compositing, au point
+     de faire tomber le rendu sur les machines modestes. Les transitions
+     d'opacité et de transform sont déjà accélérées sans lui. */
+}
+.js-motion [data-anim="up"]    { transform: translateY(26px); }
+.js-motion [data-anim="down"]  { transform: translateY(-18px); }
+.js-motion [data-anim="left"]  { transform: translateX(34px); }
+.js-motion [data-anim="right"] { transform: translateX(-34px); }
+.js-motion [data-anim="zoom"]  { transform: scale(1.06); }
+.js-motion [data-anim="clip"]  { clip-path: inset(0 0 100% 0); transform: scale(1.04); }
+
+.js-motion [data-anim].est-vu {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Lignes de titre qui montent depuis un masque.
+   Le wrapper reste opaque : c'est le <span> intérieur qui coulisse. */
+.js-motion [data-anim="ligne"] {
+  display: block;
+  overflow: hidden;
+  opacity: 1;
+  transform: none;
+  padding-bottom: 0.08em;
+}
+.js-motion [data-anim="ligne"] > span {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1.05s var(--ease-doux);
+  transition-delay: var(--delai, 0ms);
+}
+.js-motion [data-anim="ligne"].est-vu > span { transform: none; }
+
+/* Bandeau défilant */
+@keyframes defile {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.defile-piste {
+  display: flex;
+  width: max-content;
+  animation: defile 42s linear infinite;
+}
+.defile:hover .defile-piste { animation-play-state: paused; }
+
+/* Soulignement qui se déploie au survol */
+.lien-souligne {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.45s var(--ease-doux);
+}
+.lien-souligne:hover { background-size: 100% 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-motion [data-anim],
+  .js-motion [data-anim].est-vu {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+  .js-motion [data-anim="ligne"] > span { transform: none; transition: none; }
+  .defile-piste { animation: none; }
+}
