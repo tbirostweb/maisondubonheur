@@ -1,15 +1,10 @@
 /* ============================================================
    CONFIG — TOUT LE CONTENU DU SITE SE MODIFIE ICI
-   Données réelles reprises des deux annonces Booking.com
+   Informations de présentation : disponibilités et tarifs définitifs sur les annonces Booking
    ============================================================ */
 
-// Helper photos Booking (CDN bstatic). "id|clé" → URL.
-// Pour remplacer par vos propres photos : mettez directement
-// "https://votre-site.fr/photo.jpg" à la place de P("…").
-const P = (s, taille = 'max1024x768') => {
-  const [id, k] = s.split('|')
-  return `https://cf.bstatic.com/xdata/images/hotel/${taille}/${id}.jpg?k=${k}&o=`
-}
+// Illustration originale locale, schématique : aucune photo du logement.
+const P = () => '/illustration-logement.svg'
 
 // Liens Booking officiels des deux annonces (paramètres de suivi conservés,
 // identifiants de session retirés).
@@ -24,7 +19,7 @@ export const site = {
   baseline: 'L’art de vivre à la française · Troyes & Sainte-Savine',
 
   hero: {
-    image: P('356689034|f120669390f2ca03a238123226ad45dcd2500d3c0cf1112dbcc42da3fedb336c', 'max1920x1080'),
+    image: P(),
     // note et mention ne sont plus écrites ici : elles sont calculées dans
     // App.vue à partir des deux logements (moyenne pondérée par le nombre
     // d'avis). Le héros affichait 9,0 « Fabuleux » — la note du seul
@@ -52,11 +47,7 @@ export const site = {
       'Ici, ce n’est pas une agence qui vous accueille. C’est moi, Marie, qui prépare chaque logement, garnis le frigo avant votre arrivée et prépare le petit-déjeuner qui a fait la réputation de la maison.',
       'Mes voyageurs me notent 9,4 sur 10 pour l’accueil, et c’est la note dont je suis la plus fière. Une question sur les dates, le quartier ou un lit bébé ? Écrivez-moi, je réponds vite.',
     ],
-    citation: {
-      texte: 'La gentillesse des hôtes, l’emplacement avec un parking à 2 minutes à pied, les équipements, les petites attentions…',
-      auteur: 'Laurent',
-      pays: 'Belgique',
-    },
+
   },
 
   // ---- LES DEUX LOGEMENTS (données réelles Booking) ----
@@ -102,16 +93,16 @@ export const site = {
         { label: 'Situation', v: 8.5 },
       ],
       lien: BOOKING_TROYES,
-      photo: P('423108287|70410f7aeb3cfbc028412a43e424afdfa82c1c886ce38926a16630134d9d8048'),
+      photo: P(),
       galerie: [
-        P('626273893|5ffa078ae7289914bd1a5d55d84609a9158d322ef0517c8fabad2cb361291303'),
-        P('423108338|8a01379a573b41249a797c09f3568c7ab0a2d8b3aa39398cccb294047955d6ff'),
-        P('423108275|0e91253c7eda9406de4519fc7dcbddf41114c2aa9e37a3b4d9e157ce1f299e4b'),
-        P('626273890|cdec026b6fc9289c1428d5b2f2a13a001775ba11157a16bd69c23646bebbd4b4'),
-        P('423108294|e874c5024fe927212d409406919425ffd917e5df90ea3d5e8a6e4da1c6957aae'),
-        P('432429305|2775d6c44bc271cd38bc6ef8391c9593d8062988d815c3c71beb3fd5d10de929'),
-        P('432431625|e43c6412f3ac3fdf9e0fef3146327e062bd89524f7d6330a6d6103e5a34f6d13'),
-        P('432431544|084ab97e9a137b6f73bf59619b4f06a8f9351c083574dc4aa92391e69aa1b593'),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
       ],
     },
     {
@@ -154,16 +145,16 @@ export const site = {
         { label: 'Situation', v: 8.1 },
       ],
       lien: BOOKING_SAVINE,
-      photo: P('356689034|f120669390f2ca03a238123226ad45dcd2500d3c0cf1112dbcc42da3fedb336c'),
+      photo: P(),
       galerie: [
-        P('360096447|b7ddaf5b1484aa6e994eeca1e63e9c280a5e27fe1e54a5e696bce15498f8737b'),
-        P('351492802|0e8c177c23e8fc31b6c2c0fd9c0d4f815594435d101a7963fd449d5b1fb57aff'),
-        P('351500733|6f29a3594f546d677c6cff3c21870cfc897eac7515780528ba3075a7c0fedd5b'),
-        P('351492861|a9420dc554a9da46a775d0969fc3538e7fd6424aafd0d58c01eb653be28c9b7f'),
-        P('351500736|965d4941465e066ed46963631005503daf01acfbb15291a43059d3466a7e19c5'),
-        P('351492867|cdcd91828ce98e772bab0538aa118a4a68c8e1d8ee00e846bea2f2a1c3e2e9e0'),
-        P('404477071|f45cd89fad9a319d9c93db0f940cfec5fc5d7b0d0e681e9738d7a70794155dad'),
-        P('351500831|7b56fcd5e72b29bbbe1f82396001c30086b4e0ec838eaeffac0101ea0aaca095'),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
+        P(),
       ],
     },
   ],
@@ -180,15 +171,11 @@ export const site = {
       'Le frigo est garni avant votre arrivée',
     ],
     photos: [
-      P('351500733|6f29a3594f546d677c6cff3c21870cfc897eac7515780528ba3075a7c0fedd5b'), // plateau du matin
-      P('432429305|2775d6c44bc271cd38bc6ef8391c9593d8062988d815c3c71beb3fd5d10de929'), // panier garni
-      P('423108275|0e91253c7eda9406de4519fc7dcbddf41114c2aa9e37a3b4d9e157ce1f299e4b'), // cuisine équipée
+      P(), // plateau du matin
+      P(), // panier garni
+      P(), // cuisine équipée
     ],
-    citation: {
-      texte: 'L’appartement était d’une propreté irréprochable, sans parler du petit-déjeuner extrêmement copieux que nous avons su apprécier.',
-      auteur: 'Nathalie',
-      pays: 'France',
-    },
+
   },
 
   // ---- ÉQUIPEMENTS & SERVICES (icone : cle | menage | panier | message | pin | plus | wifi | parking | clim | animal) ----
@@ -270,14 +257,7 @@ export const site = {
   },
 
   // ---- AVIS (repris des commentaires Booking) ----
-  avis: [
-    { note: 5, texte: 'Logement bien équipé et arrangé avec goût. Bonne literie, climatisation. Petits déjeuners copieux. Parking privé.', nom: 'Thierry', meta: 'France · Maison du Bonheur 2' },
-    { note: 5, texte: 'Le confort, la propreté, le calme, le petit-déjeuner, la gentillesse de la propriétaire.', nom: 'Christopher', meta: 'Belgique · Maison du Bonheur 2' },
-    { note: 5, texte: 'Ce joli logement est dans une ruelle tranquille de Sainte-Savine. Il est facile de se garer et il y a toutes les commodités à moins de 400 m.', nom: 'Ines', meta: 'France · Maison du Bonheur' },
-    { note: 5, texte: 'Nous avons beaucoup apprécié l’accueil et la disponibilité de notre hôtesse. Le parking sécurisé était une très bonne surprise.', nom: 'Odile', meta: 'France · Maison du Bonheur 2' },
-    { note: 5, texte: 'Les équipements et les attentions de l’hôte, c’était parfait pour passer trois nuits avec ma famille.', nom: 'Abdellah', meta: 'France · Maison du Bonheur' },
-    { note: 5, texte: 'Appartement cosy, bien situé à 10 minutes des magasins d’usines. Hôtesse très agréable. Un grand merci.', nom: 'Juliana', meta: 'La Réunion · Maison du Bonheur 2' },
-  ],
+  avis: [],
 
   // ---- FAQ ----
   faq: [

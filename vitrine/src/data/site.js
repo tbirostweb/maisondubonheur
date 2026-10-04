@@ -1,10 +1,9 @@
 /* =========================================================================
    CONFIG — tout ce qui se modifie au quotidien est ici.
-   Les "image" sont des photos d'illustration (Unsplash) → à remplacer par
-   les vraies photos du client (idéalement auto-hébergées dans /public).
+   Les "image" pointent vers une illustration locale, pas une photo → à
+   remplacer par les vraies photos du client (auto-hébergées dans /public).
    ========================================================================= */
-const U = (id, w = 1200) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`
+const U = () => '/illustration-logement.svg'
 
 // ⚠️ À REMPLACER par tes vraies URLs Booking.
 //   - BOOKING       : ta page d'hôte / recherche de tes annonces
@@ -27,7 +26,7 @@ export const site = {
   social: { airbnb: '', instagram: '' },
 
   contact: {
-    email: 'bonjour@lescale.fr',
+    email: '',
     telephone: '+33600000000',
     telephoneAffiche: '06 00 00 00 00',
     ville: 'Votre ville, France'

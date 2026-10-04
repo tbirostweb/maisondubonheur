@@ -22,8 +22,10 @@ import AppIcon from './AppIcon.vue'
           Réserver sur Booking <AppIcon name="arrow" />
         </a>
         <p class="es-cta__contact">
-          <a :href="`mailto:${site.contact.email}`">{{ site.contact.email }}</a>
-          ·
+          <template v-if="site.contact.email">
+            <a :href="`mailto:${site.contact.email}`">{{ site.contact.email }}</a>
+            ·
+          </template>
           <a :href="`tel:${site.contact.telephone}`">{{ site.contact.telephoneAffiche }}</a>
         </p>
       </div>

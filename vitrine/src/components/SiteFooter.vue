@@ -51,7 +51,7 @@ const annee = new Date().getFullYear()
         <div>
           <h4>Contact</h4>
           <ul class="es-footer__contact">
-            <li>{{ site.contact.email }}</li>
+            <li v-if="site.contact.email">{{ site.contact.email }}</li>
             <li>{{ site.contact.telephoneAffiche }}</li>
             <li>{{ site.contact.ville }}</li>
           </ul>
