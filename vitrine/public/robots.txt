@@ -1,4 +1,3 @@
+# Site de démonstration : non indexable (meta robots + en-tête X-Robots-Tag).
 User-agent: *
 Allow: /
-
-Sitemap: https://escale.birostweb.fr/sitemap.xml

@@ -11,8 +11,6 @@ const U = (id, w = 1200) =>
 //   - chaque logement possède son propre champ `booking` (annonce précise)
 const BOOKING = 'https://www.booking.com/'
 
-// Domaine de production (sert au SEO / partage / sitemap).
-export const SITE_URL = 'https://escale.birostweb.fr'
 
 export const site = {
   marque: "L'Escale",
@@ -23,6 +21,10 @@ export const site = {
   // grande photo du hero + photo de l'hôte
   heroImage: U('1493809842364-78817add7ffb', 1800),
   hoteImage: U('1556911220-bff31c812dba'),
+
+  // Réseaux sociaux : renseigner l'URL https réelle pour afficher l'icône.
+  // Vide = icône masquée (plus de lien « # » factice).
+  social: { airbnb: '', instagram: '' },
 
   contact: {
     email: 'bonjour@lescale.fr',

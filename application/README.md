@@ -319,7 +319,7 @@ simplement de l'absence du fichier dans le dépôt).
 - **`/assets/` mis en cache un an** (Vite met une empreinte dans les noms de
   fichiers), **`index.html` jamais mis en cache** — sinon un visiteur qui
   revient continuerait de charger les anciennes ressources après un déploiement.
-- **CSP** calée sur ce que le site charge vraiment : Google Fonts et les photos
+- **CSP** calée sur ce que le site charge vraiment : polices auto-hébergées (@fontsource, plus de Google Fonts) et les photos
   `cf.bstatic.com`. Ajoutez-y tout service externe que vous brancheriez
   (analytics, carte…), sinon le navigateur le bloquera silencieusement.
 - Les fichiers cachés (`.env`, `.git/config`…) renvoient **404** et non 403 :
@@ -328,14 +328,16 @@ simplement de l'absence du fichier dans le dépôt).
 
 ### ⚠️ Changer de domaine
 
-Le site tourne aujourd'hui sur `escale.birostweb.fr`. Le jour où il passe sur
-`maisondubonheurstesavine.fr`, trois fichiers sont à mettre à jour :
+Le site tourne aujourd'hui sur `escale.birostweb.fr` (valeur de repli). Pour
+changer de domaine : définir la variable de build **`VITE_SITE_URL`** (Dokploy >
+Build Args, voir `.env.example`). Elle alimente `canonical`, `og:url`,
+`robots.txt` et `sitemap.xml`, générés au build. Mettre aussi à jour
+`site.domaine` dans `src/data/site.js`.
 
-1. `index.html` — balises `canonical` et `og:url`
-2. `public/robots.txt` — ligne `Sitemap:`
-3. `public/sitemap.xml` — balise `<loc>`
-
-Et `site.domaine` dans `src/data/site.js` pour l'affichage en pied de page.
+**Exécution** : image nginx non-root, port **8080** (adapter le port du
+domaine dans Dokploy). Durcissement runtime recommandé : read-only +
+`tmpfs /tmp`, `cap_drop: ALL`, `no-new-privileges` (testé par
+`tests/docker-smoke.sh`).
 
 ## Performance & accessibilité
 

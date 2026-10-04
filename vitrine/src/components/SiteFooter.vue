@@ -60,11 +60,11 @@ const annee = new Date().getFullYear()
 
       <div class="es-footer__bottom">
         <span>© {{ annee }} {{ site.marque }} — Tous droits réservés.</span>
-        <div class="es-social">
-          <a href="#" aria-label="Airbnb">
+        <div v-if="site.social.airbnb || site.social.instagram" class="es-social">
+          <a v-if="site.social.airbnb" :href="site.social.airbnb" target="_blank" rel="noopener noreferrer" aria-label="Airbnb">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1.6 0 2.9 1 3.9 3 .8 1.6 3.6 7.6 4.6 9.8.4.9.6 1.7.6 2.4 0 2.4-1.8 4-4.1 4-1.6 0-3.1-.9-5-3-1.9 2.1-3.4 3-5 3-2.3 0-4.1-1.6-4.1-4 0-.7.2-1.5.6-2.4 1-2.2 3.8-8.2 4.6-9.8C9.1 3 10.4 2 12 2Zm0 2.3c-.7 0-1.4.6-2 1.9-.8 1.5-3.5 7.4-4.4 9.5-.3.7-.4 1.2-.4 1.6 0 1.2.9 1.9 2 1.9 1 0 2.2-.8 3.7-2.6-1.2-1.6-2-3-2-4.3 0-1.6 1.2-2.7 3.1-2.7s3.1 1.1 3.1 2.7c0 1.3-.8 2.7-2 4.3 1.5 1.8 2.7 2.6 3.7 2.6 1.1 0 2-.7 2-1.9 0-.4-.1-.9-.4-1.6-.9-2.1-3.6-8-4.4-9.5-.6-1.3-1.3-1.9-2-1.9Zm0 7c-.8 0-1.2.4-1.2 1 0 .7.5 1.6 1.2 2.5.7-.9 1.2-1.8 1.2-2.5 0-.6-.4-1-1.2-1Z" /></svg>
           </a>
-          <a href="#" aria-label="Instagram">
+          <a v-if="site.social.instagram" :href="site.social.instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" /></svg>
           </a>
         </div>

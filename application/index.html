@@ -7,9 +7,10 @@
   <meta name="description" content="Deux appartements entiers climatisés à Troyes et Sainte-Savine. 95 € la nuit pour deux, petit-déjeuner maison et parking gratuits compris. Noté 9/10 sur Booking." />
   <meta name="theme-color" content="#EE6C12" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <!-- ⚠️ DOMAINE — à changer ici ET dans public/robots.txt + public/sitemap.xml
-       le jour où le site passe sur maisondubonheurstesavine.fr -->
-  <link rel="canonical" href="https://escale.birostweb.fr/" />
+  <!-- DOMAINE : %SITE_URL% est remplacé au build par VITE_SITE_URL (voir
+       vite.config.js, .env.example). robots.txt et sitemap.xml sont générés
+       depuis la même valeur. -->
+  <link rel="canonical" href="%SITE_URL%/" />
 
   <!-- Partage social -->
   <meta property="og:type" content="website" />
@@ -17,17 +18,14 @@
   <meta property="og:site_name" content="Maison du Bonheur" />
   <meta property="og:title" content="Maison du Bonheur — Troyes & Sainte-Savine" />
   <meta property="og:description" content="Deux appartements entiers climatisés, parking gratuit et petit-déjeuner compris. 95 € la nuit pour deux." />
-  <meta property="og:url" content="https://escale.birostweb.fr/" />
+  <meta property="og:url" content="%SITE_URL%/" />
   <meta property="og:image" content="https://cf.bstatic.com/xdata/images/hotel/max1024x768/356689034.jpg?k=f120669390f2ca03a238123226ad45dcd2500d3c0cf1112dbcc42da3fedb336c&o=" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="768" />
   <meta property="og:image:alt" content="Le salon lumineux de la Maison du Bonheur" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cf.bstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300..800&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div id="app"></div>

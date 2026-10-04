@@ -1,5 +1,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// Polices auto-hébergées (aucun appel à Google Fonts) — sous-ensembles latin / latin-ext
+import '@fontsource/hanken-grotesk/latin-400.css'
+import '@fontsource/hanken-grotesk/latin-ext-400.css'
+import '@fontsource/hanken-grotesk/latin-500.css'
+import '@fontsource/hanken-grotesk/latin-ext-500.css'
+import '@fontsource/hanken-grotesk/latin-600.css'
+import '@fontsource/hanken-grotesk/latin-ext-600.css'
+import '@fontsource/hanken-grotesk/latin-700.css'
+import '@fontsource/hanken-grotesk/latin-ext-700.css'
+import '@fontsource/hanken-grotesk/latin-800.css'
+import '@fontsource/hanken-grotesk/latin-ext-800.css'
+import '@fontsource/ibm-plex-mono/latin-500.css'
+import '@fontsource/ibm-plex-mono/latin-ext-500.css'
 import './assets/main.css'
 
 const app = createApp(App)

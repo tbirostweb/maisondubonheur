@@ -5,13 +5,14 @@
 # =========================================================================
 
 # ---------- Stage 1 : build ----------------------------------------------
-FROM node:22-alpine AS build
+# Images épinglées par digest. Mise à jour : docker buildx imagetools inspect <image:tag>
+FROM node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 AS build
 
 WORKDIR /app
 
 # Install déterministe des dépendances (cache Docker optimisé).
-COPY package.json package-lock.json* ./
-RUN npm ci || npm install
+COPY package.json package-lock.json ./
+RUN npm ci
 
 # Build de production.
 COPY . .
@@ -19,7 +20,7 @@ RUN npm run build
 
 # ---------- Stage 2 : runtime --------------------------------------------
 # Image nginx "unprivileged" : tourne en utilisateur non-root, écoute sur 8080.
-FROM nginxinc/nginx-unprivileged:1.27-alpine AS runtime
+FROM nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8 AS runtime
 
 # Métadonnées.
 LABEL org.opencontainers.image.title="L'Escale" \

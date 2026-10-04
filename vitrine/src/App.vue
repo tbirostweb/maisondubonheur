@@ -13,6 +13,9 @@ import BackToTop from './components/BackToTop.vue'
 </script>
 
 <template>
+  <div class="es-demo" role="note">
+    Site de démonstration — logements, tarifs, avis, notes et coordonnées sont fictifs et ne constituent pas une offre.
+  </div>
   <a class="es-skip" href="#accueil">Aller au contenu</a>
   <SiteHeader />
   <main id="accueil">
@@ -28,3 +31,7 @@ import BackToTop from './components/BackToTop.vue'
   <SiteFooter />
   <BackToTop />
 </template>
+
+<style>
+.es-demo{background:#2a2119;color:#fff;text-align:center;font-size:.85rem;line-height:1.4;padding:.55rem 1rem;font-weight:600}
+</style>

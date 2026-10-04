@@ -30,9 +30,14 @@ Site vitrine statique de locations de caractère, reconstruit proprement en
 - `BOOKING` : ton lien **Booking** global (boutons « Réserver » / « Nous
   contacter »).
 - `booking` de chaque logement : le lien de **l'annonce Booking précise**.
-- `SITE_URL` : domaine de production — configuré sur `https://escale.birostweb.fr`
-  (également renseigné dans `index.html`, `public/robots.txt` et
-  `public/sitemap.xml`).
+
+> **Statut : site de DÉMONSTRATION (template).** Non indexable (meta robots +
+> `X-Robots-Tag`), bandeau « Site de démonstration » affiché, JSON-LD et sitemap
+> retirés (ils contenaient note/coordonnées fictives). Pour une mise en
+> production commerciale : vraies coordonnées, photos libres de droits, vrais
+> avis datés/sourcés, mentions légales/confidentialité, puis retirer le bandeau,
+> le noindex (`index.html`, `nginx.conf`), et ajouter canonical/sitemap/JSON-LD
+> réels (recalculer le hash CSP si JSON-LD inline).
 
 ## Fonctionnalités
 - Header collant avec **menu mobile** et **scrollspy** (lien actif au scroll).
@@ -41,8 +46,8 @@ Site vitrine statique de locations de caractère, reconstruit proprement en
 - Boutons **Réserver → Booking** (nouvel onglet, `rel="noopener noreferrer"`).
 - **Bouton retour en haut**, **lien d'évitement** (skip link) pour l'accessibilité.
 - **SEO / partage** : `<title>`/description, Open Graph, Twitter Card, canonical,
-  favicon SVG, `site.webmanifest`, `robots.txt`, `sitemap.xml`, et **données
-  structurées JSON-LD** (`LodgingBusiness` : note, prix, contact).
+  favicon SVG, `site.webmanifest`, `robots.txt`, `sitemap.xml`, (JSON-LD volontairement absent tant que
+  les données ne sont pas réelles).
 - Animations de révélation au scroll (désactivées si `prefers-reduced-motion`).
 
 ## Développement local

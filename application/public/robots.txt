@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://escale.birostweb.fr/sitemap.xml

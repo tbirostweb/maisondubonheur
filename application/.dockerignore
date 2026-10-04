@@ -3,8 +3,27 @@ dist
 .git
 .gitignore
 .idea
+.claude
+.agents
 .DS_Store
+# Secrets et données locales : jamais dans le contexte de build
+.env
+.env.*
+!.env.example
 *.local
+*.pem
+*.key
+*.p12
+*.p8
+*.keystore
+*.jks
+*.sqlite*
+*.db
+*.dump
+*.bak
+*.backup
+*.log
+backups
 README.md
 Dockerfile
 .dockerignore

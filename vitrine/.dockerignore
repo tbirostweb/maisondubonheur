@@ -12,3 +12,20 @@ Dockerfile
 .dockerignore
 README.md
 "Site Airbnb Design.html"
+.claude
+.agents
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.p8
+*.keystore
+*.jks
+*.sqlite*
+*.db
+*.dump
+*.bak
+*.backup
+backups
