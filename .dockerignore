@@ -1,5 +1,4 @@
 # Contexte de build racine : seul application/ est utile.
-vitrine
 tests
 .git
 .gitignore

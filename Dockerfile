@@ -1,7 +1,6 @@
 # ============================================================
 #  Maison du Bonheur — Dockerfile racine (Dokploy, Build Path = /)
 #  Construit UNIQUEMENT le site `application/` (Maison du Bonheur).
-#  Le dossier `vitrine/` (L'Escale, démo) n'est pas concerné.
 #  Même recette que application/Dockerfile, chemins relatifs à la racine.
 # ============================================================
 
