@@ -69,7 +69,7 @@ watch(
     <BreakfastSection :pd="site.petitDejeuner" />
     <ServicesSection :services="site.services" />
     <GuideSection :guide="site.guide" />
-    <section id="avis" class="mx-auto max-w-[1240px] px-6 py-12"><h2 class="display-s">Avis des voyageurs</h2><p>Consultez les avis et les photos directement sur les annonces Booking via les liens de réservation.</p></section>
+    <ReviewsSection :avis="site.avis" :logements="site.logements" />
     <FaqSection :faq="site.faq" @reserver="ouvrirReservation()" />
     <ContactSection :contact="site.contact" :logements="site.logements" :prix="prixMin" @reserver="ouvrirReservation()" />
   </main>

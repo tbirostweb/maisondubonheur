@@ -1,8 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-// Polices auto-hébergées (aucun appel à Google Fonts)
-import '@fontsource-variable/onest'
-import '@fontsource-variable/hanken-grotesk'
 import './style.css'
 
 // Les animations ne masquent le contenu que si JavaScript tourne et que

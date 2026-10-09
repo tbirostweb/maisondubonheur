@@ -27,7 +27,6 @@ const coords = computed(() =>
       <div class="grid grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20" data-stagger="90">
         <!-- Appel -->
         <div>
-          <p class="mb-4">Pour contacter l’hôte ou exercer vos droits concernant un séjour, utilisez la messagerie de votre réservation Booking, ou écrivez à la SCI BIROST à son adresse indiquée dans les mentions légales.</p>
           <p class="surtitre text-jaune-vif" data-anim="up">Réserver</p>
           <h2 class="display mt-4 max-w-[13ch] text-[clamp(2rem,4.9vw,3.85rem)]" data-anim="up">
             Vos prochaines vacances commencent ici.

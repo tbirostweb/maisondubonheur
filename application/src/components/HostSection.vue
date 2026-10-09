@@ -86,6 +86,16 @@ const imgOk = ref(Boolean(props.hote.image))
           >{{ p }}</p>
 
           <!-- Citation en exergue -->
+          <figure class="relative mt-10 max-w-[54ch] pl-12" data-anim="up">
+            <IconBase name="guillemet" class="absolute left-0 top-1 h-7 w-7 text-argile" />
+            <blockquote class="display-s text-[1.35rem] leading-snug text-encre">
+              {{ hote.citation.texte }}
+            </blockquote>
+            <figcaption class="mt-3 flex items-center gap-3 text-[0.84rem] text-encre2">
+              <span class="h-px w-7 bg-ligne-2" />
+              {{ hote.citation.auteur }}, {{ hote.citation.pays }} — avis Booking
+            </figcaption>
+          </figure>
 
           <p class="display mt-9 text-[1.85rem] text-orange" data-anim="up">{{ hote.prenom }}</p>
         </div>
