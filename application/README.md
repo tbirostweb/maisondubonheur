@@ -328,11 +328,10 @@ simplement de l'absence du fichier dans le dépôt).
 
 ### ⚠️ Changer de domaine
 
-Le site tourne aujourd'hui sur `escale.birostweb.fr` (valeur de repli). Pour
-changer de domaine : définir la variable de build **`VITE_SITE_URL`** (Dokploy >
-Build Args, voir `.env.example`). Elle alimente `canonical`, `og:url`,
-`robots.txt` et `sitemap.xml`, générés au build. Mettre aussi à jour
-`site.domaine` dans `src/data/site.js`.
+Le site tourne sur `www.maisondubonheurstesavine.fr` (valeur de repli dans
+`vite.config.js`). Pour changer de domaine, une seule chose à faire :
+définir **`VITE_SITE_URL`** dans Dokploy (Build Args). Le canonical,
+l'`og:url`, `robots.txt` et `sitemap.xml` en découlent automatiquement.
 
 **Exécution** : image nginx non-root, port **8080** (adapter le port du
 domaine dans Dokploy). Durcissement runtime recommandé : read-only +

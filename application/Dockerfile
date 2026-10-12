@@ -19,16 +19,20 @@ COPY . .
 RUN npm run build
 
 # ---------- Étape 2 : service ----------
-FROM nginx:1.27-alpine
+# Image non privilégiée (UID 101) : même base que le Dockerfile racine
+# et que le Dockerfile racine, pour servir sur le même port partout.
+FROM nginxinc/nginx-unprivileged:1.27-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY security-headers.conf /etc/nginx/security-headers.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
-EXPOSE 80
+USER 101
+
+EXPOSE 8080
 
 # Vérification de santé : Dokploy saura si le conteneur répond vraiment.
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://127.0.0.1/ >/dev/null 2>&1 || exit 1
+  CMD wget -qO- http://127.0.0.1:8080/ >/dev/null 2>&1 || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
