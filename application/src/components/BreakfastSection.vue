@@ -29,26 +29,6 @@ defineProps({ pd: Object })
 
           <p class="mt-5 max-w-[52ch] leading-relaxed text-encre2" data-anim="up">{{ pd.texte }}</p>
 
-          <!-- Liste en filets, numérotée -->
-          <ul class="mt-9" data-anim="up">
-            <li
-              v-for="(p, i) in pd.points"
-              :key="p"
-              class="flex items-baseline gap-5 border-t border-ligne py-3.5 last:border-b"
-            >
-              <span class="chiffres surtitre text-argile">0{{ i + 1 }}</span>
-              <span class="font-medium">{{ p }}</span>
-            </li>
-          </ul>
-
-          <figure class="relative mt-9 max-w-[50ch] pl-11" data-anim="up">
-            <IconBase name="guillemet" class="absolute left-0 top-1 h-6 w-6 text-argile" />
-            <blockquote class="display-s text-[1.18rem] leading-snug">{{ pd.citation.texte }}</blockquote>
-            <figcaption class="mt-2.5 flex items-center gap-3 text-[0.83rem] text-encre2">
-              <span class="h-px w-6 bg-ligne-2" />
-              {{ pd.citation.auteur }}, {{ pd.citation.pays }} — avis Booking
-            </figcaption>
-          </figure>
         </div>
 
         <!-- ---------- Collage ---------- -->

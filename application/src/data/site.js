@@ -4,7 +4,11 @@
    ============================================================ */
 
 // Illustration originale locale, schématique : aucune photo du logement.
-const P = () => '/illustration-logement.svg'
+// Photos hébergées sur le site (public/photos/), et non chargées depuis le
+// CDN de Booking : pas d'adresse IP de visiteur transmise à un tiers, pas de
+// lien qui casse, et la CSP reste en `img-src 'self'`.
+// Deux largeurs sont disponibles : -500 et -1024 (voir utils/photos.js).
+const P = (id) => `/photos/${id}-1024.jpg`
 
 // Liens Booking officiels des deux annonces (paramètres de suivi conservés,
 // identifiants de session retirés).
@@ -19,7 +23,7 @@ export const site = {
   baseline: 'L’art de vivre à la française · Troyes & Sainte-Savine',
 
   hero: {
-    image: P(),
+    image: P('356689034'),
     // note et mention ne sont plus écrites ici : elles sont calculées dans
     // App.vue à partir des deux logements (moyenne pondérée par le nombre
     // d'avis). Le héros affichait 9,0 « Fabuleux » — la note du seul
@@ -93,16 +97,16 @@ export const site = {
         { label: 'Situation', v: 8.5 },
       ],
       lien: BOOKING_TROYES,
-      photo: P(),
+      photo: P('423108287'),
       galerie: [
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
+        P('626273893'),
+        P('423108338'),
+        P('423108275'),
+        P('626273890'),
+        P('423108294'),
+        P('432429305'),
+        P('432431625'),
+        P('432431544'),
       ],
     },
     {
@@ -145,16 +149,16 @@ export const site = {
         { label: 'Situation', v: 8.1 },
       ],
       lien: BOOKING_SAVINE,
-      photo: P(),
+      photo: P('356689034'),
       galerie: [
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
-        P(),
+        P('360096447'),
+        P('351492802'),
+        P('351500733'),
+        P('351492861'),
+        P('351500736'),
+        P('351492867'),
+        P('404477071'),
+        P('351500831'),
       ],
     },
   ],
@@ -171,9 +175,9 @@ export const site = {
       'Le frigo est garni avant votre arrivée',
     ],
     photos: [
-      P(), // plateau du matin
-      P(), // panier garni
-      P(), // cuisine équipée
+      P('351500733'), // plateau du matin
+      P('432429305'), // panier garni
+      P('423108275'), // cuisine équipée
     ],
 
   },
