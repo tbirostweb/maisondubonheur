@@ -21,7 +21,7 @@ RUN npm run build
 # ---------- Étape 2 : service ----------
 # Image non privilégiée (UID 101) : même base que le Dockerfile racine
 # et que le Dockerfile racine, pour servir sur le même port partout.
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+FROM nginxinc/nginx-unprivileged:1.30.6-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY security-headers.conf /etc/nginx/security-headers.conf
